@@ -40,7 +40,7 @@ app.get('/', (req,res) => {
       }, timeToDestroy);
     };
 
-    // UTILITIES
+    // UTILITIES => FETCH
     const createQueryString = (obj) => new URLSearchParams(obj).toString();
 
     async function fetchData(endpoint, option = {}, responseType = 'json') {
@@ -58,7 +58,8 @@ app.get('/', (req,res) => {
         }
       }
     }
-      
+
+    // LET'S PLAY !
       
     document.querySelector('#log-products').addEventListener( 'click', async function (e) {
       
@@ -73,7 +74,6 @@ app.get('/', (req,res) => {
       const {communication_ok, response} = await fetchData(url);
       const {success} = response || {};
 
-      
       if (!communication_ok) {
         notifyUser('Connection Problem, retry !!');
       }
@@ -84,6 +84,7 @@ app.get('/', (req,res) => {
         notifyUser('Success!!');
       }
 
+      // REVERT LINK TEXT
       this.innerHTML = linkText;
 
     });
